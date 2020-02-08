@@ -1,0 +1,19 @@
+OUTPUT(code.bin);
+
+ENTRY(_start);
+
+SECTIONS {    
+	. = 0x011DE200;
+	.text : {
+		*(.start*);
+		*(.text*);
+	}
+	.data : {
+		*(.rodata*);		
+	}
+	/DISCARD/ : {
+		*(*);
+	}
+}
+
+ASSERT((SIZEOF(.text) + SIZEOF(.data)) < 0x1E00, "please recude the size.");

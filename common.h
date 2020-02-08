@@ -1,0 +1,31 @@
+#ifndef _COMMON_H_
+#define _COMMON_H_
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+#define OSDynLoad_Acquire ((void (*)(char* rpl, unsigned int *handle))0x0102A3B4)
+#define OSDynLoad_FindExport ((void (*)(unsigned int handle, int isdata, char *symbol, void *address))0x0102B828)
+#define OSFatal ((void (*)(char* msg))0x01031618)
+#define __os_snprintf ((int(*)(char* s, int n, const char * format, ... ))0x0102F160)
+
+#define ADDRESS_main_entry_hook                     0x0101c56c
+
+#define BUS_SPEED                       248625000
+#define SECS_TO_TICKS(sec) (((unsigned long long)(sec)) * (BUS_SPEED/4))
+
+#define KERN_CODE_READ			    0xFFF023D4
+#define KERN_CODE_WRITE			    0xFFF023F4
+
+#define KERN_SYSCALL_TBL_1          0xFFE84C70 // unknown
+#define KERN_SYSCALL_TBL_2          0xFFE85070 // works with games
+#define KERN_SYSCALL_TBL_3          0xFFE85470 // works with loader
+#define KERN_SYSCALL_TBL_4          0xFFEAAA60 // works with home menu
+#define KERN_SYSCALL_TBL_5          0xFFEAAE60 // works with browser (previously KERN_SYSCALL_TBL)
+
+#ifdef __cplusplus
+}
+#endif
+
+#endif

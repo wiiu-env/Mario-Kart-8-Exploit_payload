@@ -1,0 +1,11 @@
+.global SC_KernelMemCpy
+SC_KernelMemCpy:
+	li %r0, 0x2500
+	sc
+blr
+
+.global SC0x09_SetupSyscall
+SC0x09_SetupSyscall:
+	li %r0, 0x0900
+	sc
+blr
